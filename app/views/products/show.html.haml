@@ -41,8 +41,9 @@
   = product.category.name
 %p
 
-.embed-responsive.embed-responsive-4by3.embed-responsive-item
-  %iframe{:src => product.youtube}
+.video
+  .embed-responsive.embed-responsive-4by3.embed-responsive-item
+    %iframe{:src => product.youtube}
 
 
 = link_to 'Back', category_path(category)
