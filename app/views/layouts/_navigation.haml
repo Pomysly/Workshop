@@ -1,4 +1,4 @@
-.navbar-fixed-top.navbar-inverse
+.navbar.navbar-inverse
   .container
     .navbar-header
       %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
@@ -14,6 +14,11 @@
         %li= link_to 'Contact', pages_contact_path
         - if user_signed_in?
           %li= link_to 'Logout', destroy_user_session_path, method: :delete
-        - else
-          %li= link_to 'Sign in', new_user_session_path
-          
+        %li
+          #google_translate_element
+            :javascript
+              function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'de,es,fr,pl,ru', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+              }
+            %script{:src => "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit", :type => "text/javascript"}
+                    
