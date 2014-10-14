@@ -1,0 +1,49 @@
+%h1 Listing pedigrees
+
+%table.table
+  %tr
+    %th{:rowspan => "4"}= pedigree.father
+    %th{:rowspan => "2"}
+    %th
+  %tr
+    %td
+  %tr
+    %td{:rowspan => "2"}
+    %td
+  %tr
+    %td
+  %tr
+    %td{:rowspan => "4"}= pedigree.mother
+    %td{:rowspan => "2"}
+    %td
+  %tr
+    %td
+  %tr
+    %td{:rowspan => "2"}
+    %td
+  %tr
+    %td
+
+  - pedigrees.each do |pedigree|
+    %tr
+      %td= pedigree.father
+      %td= pedigree.mother
+      %td= pedigree.f_father
+      %td= pedigree.f_father
+      %td= pedigree.m_father
+      %td= pedigree.m_mother
+      %td= pedigree.f_f_father
+      %td= pedigree.f_f_mother
+      %td= pedigree.f_m_father
+      %td= pedigree.f_m_mother
+      %td= pedigree.m_f_father
+      %td= pedigree.m_f_mother
+      %td= pedigree.m_m_father
+      %td= pedigree.m_m_mother
+      %td= link_to 'Show', pedigree
+      %td= link_to 'Edit', edit_pedigree_path(pedigree)
+      %td= link_to 'Destroy', pedigree, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Pedigree', new_category_product_pedigree_path(category.id, product.id)

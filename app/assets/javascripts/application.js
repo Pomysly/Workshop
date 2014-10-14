@@ -13,4 +13,7 @@
 //= require jquery
 //= require lightbox
 //= require jquery_ujs
+//= require bootstrap
+//= require bootstrap-editable
+//= require bootstrap-editable-rails
 //= require_tree .

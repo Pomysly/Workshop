@@ -30,6 +30,8 @@ GEM
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
     bcrypt (3.1.7-x86-mingw32)
+    bootstrap-editable-rails (0.0.7)
+      railties (>= 3.1)
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
     builder (3.2.2)
@@ -195,6 +197,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  bootstrap-editable-rails
   bootstrap-sass (~> 3.2.0)
   carrierwave
   coffee-rails

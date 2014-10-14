@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141003161837) do
+ActiveRecord::Schema.define(version: 20141014180727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,26 @@ ActiveRecord::Schema.define(version: 20141003161837) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "pedigrees", force: true do |t|
+    t.string   "father"
+    t.string   "mother"
+    t.string   "f_father"
+    t.string   "f_mother"
+    t.string   "m_father"
+    t.string   "m_mother"
+    t.string   "f_f_father"
+    t.string   "f_f_mother"
+    t.string   "f_m_father"
+    t.string   "f_m_mother"
+    t.string   "m_f_father"
+    t.string   "m_f_mother"
+    t.string   "m_m_father"
+    t.string   "m_m_mother"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "product_id"
   end
 
   create_table "pictures", force: true do |t|
@@ -39,6 +59,7 @@ ActiveRecord::Schema.define(version: 20141003161837) do
     t.datetime "updated_at"
     t.integer  "category_id"
     t.integer  "user_id"
+    t.string   "picture"
     t.string   "breed"
     t.integer  "YoB"
     t.string   "color"

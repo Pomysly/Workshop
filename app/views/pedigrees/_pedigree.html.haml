@@ -1,0 +1,24 @@
+%table.table
+  %tr
+    %th{:rowspan => "4"}= product.pedigree.father
+    %th{:rowspan => "2"}= product.pedigree.f_father
+    %th= product.pedigree.m_father
+  %tr
+    %td= product.pedigree.m_mother
+  %tr
+    %td{:rowspan => "2"}= product.pedigree.f_mother
+    %td
+  %tr
+    %td
+  %tr
+    %td{:rowspan => "4"}= product.pedigree.mother
+    %td{:rowspan => "2"}
+    %td
+  %tr
+    %td
+  %tr
+    %td{:rowspan => "2"}
+    %td
+  %tr
+    %td
+      # %a#pedigree.father{"data-name" => "father", "data-original-title" => "Enter username", "data-resource" => "pedegree", "data-type" => "text", "data-url" => "/pedegrees/1", :href => "#"} superuser

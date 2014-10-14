@@ -6,6 +6,8 @@ class ProductsController < ApplicationController
   expose(:product)
   expose(:picture) { Picture.new }
   expose(:pictures)
+  expose(:pedigrees)
+  expose(:pedigree)
   expose_decorated(:reviews, ancestor: :product)
 
   def index
@@ -27,6 +29,7 @@ class ProductsController < ApplicationController
   def create
     self.product = Product.new(product_params)
     self.product.user = current_user
+    product.pedigree = Pedigree.new
 
     if product.save
       category.products << product
