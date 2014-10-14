@@ -5,7 +5,10 @@
     %a{href: category_path(category)} #{category.name}
   %li.active #{product.title}
 
-%h2 #{product.title} #{link_to raw('<span class="glyphicon glyphicon-pencil small"></span>'), edit_category_product_path(category.id, product.id)}
+%h2 #{product.title} 
+- if user_signed_in?
+  %p 
+    = link_to "Edit horse", edit_category_product_path(category.id, product.id), class: "btn btn-large btn-default" 
 
 =render 'pictures/pictures'
 
