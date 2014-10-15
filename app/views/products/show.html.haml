@@ -10,50 +10,50 @@
   %p 
     = link_to "Edit horse", edit_category_product_path(category.id, product.id), class: "btn btn-large btn-default" 
 
-=render 'pictures/pictures'
+.row 
+  .col-md-6
+    .well
+      %p= product.description
+      
+    .well
+      %b Breed:
+      = product.breed
+      %p
+      %b Gender:
+      = product.gender
+      %p
+      %b Year of Birth:
+      = product.YoB
+      %p
+      %b Height:
+      = product.height
+      %p
+      %b color:
+      = product.color
+      %p
+      %b Price:
+      = product.price
+      %p
+      %b Category:
+      = product.category.name
+    
+  .col-md-6
+    =render 'pictures/pictures'
 
-- if user_signed_in?
-  %p 
-  = link_to "Manage pictures", new_category_product_picture_path(category.id, product.id), class: "btn btn-large btn-primary" 
-%p
-  %br
+.row
+  .col-md-6
+    %h3 Pedigree:
+    - if product.pedigree != nil
+      = render 'pedigrees/pedigree'
+    - else
+      - if user_signed_in?
+        = link_to "Add Pedigree", new_category_product_pedigree_path(category.id, product.id), class: "btn btn-large btn-primary" 
 
-.well
-  = product.description
-%p
-  %b Breed:
-  = product.breed
-  %p
-  %b Gender:
-  = product.gender
-  %p
-  %b Year of Birth:
-  = product.YoB
-  %p
-  %b Height:
-  = product.height
-  %p
-  %b color:
-  = product.color
-  %p
-  %b Price:
-  = product.price
-
-%p
-  %b Category:
-  = product.category.name
-%p
-
-%h3 Peedigree
-- if product.pedigree != nil
-  = render 'pedigrees/pedigree'
-- else
-  - if user_signed_in?
-    = link_to "Add Pedigree", new_category_product_pedigree_path(category.id, product.id), class: "btn btn-large btn-primary" 
-
-.video
-  .embed-responsive.embed-responsive-4by3.embed-responsive-item
-    %iframe{:src => product.youtube}
+.row 
+  .col-md-6
+    .video
+      .embed-responsive.embed-responsive-4by3.embed-responsive-item
+        %iframe{:src => product.youtube}
 
 
 

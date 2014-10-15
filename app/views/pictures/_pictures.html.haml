@@ -2,3 +2,6 @@
   = link_to picture.url, rel: :lightbox do
     = image_tag picture.url, height: 100  
 
+- if user_signed_in?
+  %p 
+  = link_to "Manage pictures", new_category_product_picture_path(category.id, product.id), class: "btn btn-large btn-primary"
