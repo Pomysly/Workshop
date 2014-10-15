@@ -44,10 +44,14 @@
   = product.category.name
 %p
 
+%h3 Peedigree
+= render 'pedigrees/pedigree'
+
 .video
   .embed-responsive.embed-responsive-4by3.embed-responsive-item
     %iframe{:src => product.youtube}
 
-= render 'pedigrees/pedigree'
+
+
 
 = link_to 'Back', category_path(category)

@@ -39,7 +39,7 @@ class PedigreesController < ApplicationController
   # PATCH/PUT /pedigrees/1
   def update
     if pedigree.update(pedigree_params)
-      redirect_to pedigree, notice: 'Pedigree was successfully updated.'
+      redirect_to category_product_pedigree_url, notice: 'Pedigree was successfully updated.'
     else
       render :edit
     end

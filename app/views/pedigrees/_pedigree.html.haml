@@ -1,24 +1,26 @@
-%table.table
+%table.table.table-bordered
   %tr
     %th{:rowspan => "4"}= product.pedigree.father
-    %th{:rowspan => "2"}= product.pedigree.f_father
-    %th= product.pedigree.m_father
+    %td{:rowspan => "2"}= product.pedigree.f_father
+    %td= product.pedigree.f_f_father
   %tr
-    %td= product.pedigree.m_mother
+    %td= product.pedigree.f_f_mother
   %tr
     %td{:rowspan => "2"}= product.pedigree.f_mother
-    %td
+    %td= product.pedigree.f_m_father
   %tr
-    %td
+    %td= product.pedigree.f_m_mother
   %tr
-    %td{:rowspan => "4"}= product.pedigree.mother
-    %td{:rowspan => "2"}
-    %td
+    %th{:rowspan => "4"}= product.pedigree.mother
+    %td{:rowspan => "2"}= product.pedigree.m_father
+    %td= product.pedigree.m_f_father
   %tr
-    %td
+    %td= product.pedigree.m_f_mother
   %tr
-    %td{:rowspan => "2"}
-    %td
+    %td{:rowspan => "2"}= product.pedigree.m_mother
+    %td= product.pedigree.m_m_father
   %tr
-    %td
-      # %a#pedigree.father{"data-name" => "father", "data-original-title" => "Enter username", "data-resource" => "pedegree", "data-type" => "text", "data-url" => "/pedegrees/1", :href => "#"} superuser
+    %td= product.pedigree.m_m_mother
+
+- if user_signed_in?
+  = link_to "Edit pedigree", edit_category_product_pedigree_path(category.id, product.id, product.pedigree.id), class: "btn btn-large btn-primary"

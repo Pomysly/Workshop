@@ -1,52 +1,35 @@
-= form_for @pedigree do |f|
-  - if @pedigree.errors.any?
+= form_for [category, product, pedigree]  do |f|
+  - if pedigree.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@pedigree.errors.count, "error")} prohibited this pedigree from being saved:"
+      %h2= "#{pluralize(pedigree.errors.count, "error")} prohibited this pedigree from being saved:"
       %ul
-        - @pedigree.errors.full_messages.each do |msg|
+        - pedigree.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :father
-    = f.text_field :father
-  .field
-    = f.label :mother
-    = f.text_field :mother
-  .field
-    = f.label :f_father
-    = f.text_field :f_father
-  .field
-    = f.label :f_mother
-    = f.text_field :f_mother
-  .field
-    = f.label :m_father
-    = f.text_field :m_father
-  .field
-    = f.label :m_mother
-    = f.text_field :m_mother
-  .field
-    = f.label :f_f_father
-    = f.text_field :f_f_father
-  .field
-    = f.label :f_f_mother
-    = f.text_field :f_f_mother
-  .field
-    = f.label :f_m_father
-    = f.text_field :f_m_father
-  .field
-    = f.label :f_m_mother
-    = f.text_field :f_m_mother
-  .field
-    = f.label :m_f_father
-    = f.text_field :m_f_father
-  .field
-    = f.label :m_f_mother
-    = f.text_field :m_f_mother
-  .field
-    = f.label :m_m_father
-    = f.text_field :m_m_father
-  .field
-    = f.label :m_m_mother
-    = f.text_field :m_m_mother
+  %table.table.table-bordered
+    %tr
+      %th{:rowspan => "4"}= f.text_field :father
+      %td{:rowspan => "2"}= f.text_field :f_father
+      %td= f.text_field :f_f_father
+    %tr
+      %td= f.text_field :f_f_mother
+    %tr
+      %td{:rowspan => "2"}= f.text_field :f_mother
+      %td= f.text_field :f_m_father
+    %tr
+      %td= f.text_field :f_m_mother
+    %tr
+      %th{:rowspan => "4"}= f.text_field :mother
+      %td{:rowspan => "2"}= f.text_field :m_father
+      %td= f.text_field :m_f_father
+    %tr
+      %td= f.text_field :m_f_mother
+    %tr
+      %td{:rowspan => "2"}= f.text_field :m_mother
+      %td= f.text_field :m_m_father
+    %tr
+      %td= f.text_field :m_m_mother
+      
   .actions
     = f.submit 'Save'
+
