@@ -45,7 +45,11 @@
 %p
 
 %h3 Peedigree
-= render 'pedigrees/pedigree'
+- if product.pedigree != nil
+  = render 'pedigrees/pedigree'
+- else
+  - if user_signed_in?
+    = link_to "Add Pedigree", new_category_product_pedigree_path(category.id, product.id), class: "btn btn-large btn-primary" 
 
 .video
   .embed-responsive.embed-responsive-4by3.embed-responsive-item

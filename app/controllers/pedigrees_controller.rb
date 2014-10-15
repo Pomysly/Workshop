@@ -29,8 +29,8 @@ class PedigreesController < ApplicationController
     pedigree = Pedigree.new(pedigree_params)
 
     if pedigree.save
-      product.pedigrees << pedigree
-      redirect_to pedigree, notice: 'Pedigree was successfully created.'
+      product.pedigree = pedigree
+      redirect_to category_product_url(:id => product.id), notice: 'Pedigree was successfully created.'
     else
       render :new
     end
